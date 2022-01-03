@@ -20,9 +20,13 @@
 
 .title {
   font-size: 18px;
-  font-weight: 560;
+  /* font-weight: 560; */
 }
-
+.wishlist {
+  display: flex;
+  margin-top: 10px;
+  margin-left: 250px;
+}
 .price {
   /* color: red; */
   font-size: 18px;
@@ -30,7 +34,7 @@
 }
 
 .starRating {
-  display: flex;
+  /* display: flex; */
   justify-content: flex-start;
 }
 
@@ -53,6 +57,14 @@
   background: #ffd814;
   margin-top: 10px;
   color: #111;
+  border-radius: 20px;
+  padding: 8px 30px;
+  border: none;
+}
+.buynowbutton {
+  background: #eba851;
+  margin-top: 10px;
+  color: rgb(0, 0, 0);
   border-radius: 20px;
   padding: 8px 30px;
   border: none;

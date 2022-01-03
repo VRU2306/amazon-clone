@@ -30,3 +30,7 @@
   margin: 10px;
   color: #fff;
 }
+a {
+  text-decoration-line: none;
+  text-decoration: none;
+}

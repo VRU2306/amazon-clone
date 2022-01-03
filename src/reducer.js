@@ -1,5 +1,6 @@
 export const initialState = {
   basket: [],
+  wishlist:[],
   user: null
 }
 
@@ -14,7 +15,20 @@ const reducer = (state, action) => {
       ...state,
       basket: [...state.basket, action.item],
     };
-
+  case "SET_BASKET":
+      const indexss = state.basket.findIndex(
+        (basketItemsss) => basketItemsss.id === action.id
+      ); 
+      let newBasketsss = [...state.basket]
+       return {
+        ...state,
+        basket: newBasketsss
+      }
+    case "ADD_TO_WISHLIST":
+    return {
+      ...state,
+      wishlist: [...state.wishlist, action.item],
+    };
     case "REMOVE_FROM_BASKET":
       const index = state.basket.findIndex(
         (basketItems) => basketItems.id === action.id
@@ -26,12 +40,28 @@ const reducer = (state, action) => {
         console.warn(
           `Cant remove product {id: ${action.id}} as its not in basket!`
         )
-      }
+      };
       return {
         ...state,
         basket: newBasket
       }
-
+      
+    case "REMOVE_FROM_WISHLIST":
+    const indexs = state.wishlist.findIndex(
+        (basketItemss) => basketItemss.id === action.id
+      ); 
+      let newBaskets = [...state.wishlist]
+      if (indexs >= 0) {
+        newBaskets.splice(indexs, 1)
+      } else{
+        console.warn(
+          `Cant remove product {id: ${action.id}} as its not in WISHLIST!`
+        )
+      };
+         return {
+        ...state,
+        wishlist: newBaskets
+      }
     case "SET_USER":
       return{
         ...state,
@@ -42,6 +72,12 @@ const reducer = (state, action) => {
       return{
         ...state,
         basket: []
+        
+      }
+      case "EMPTY_WISHLIST":
+      return{
+        ...state,
+        wishlist: []
         
       }
     default:

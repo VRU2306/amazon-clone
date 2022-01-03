@@ -102,7 +102,16 @@
   flex-direction: column;
   margin-right: 10px;
 }
-
+.headerNavwishlist {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.headerNavwishlist > a {
+  color: white;
+  text-decoration: none;
+  text-decoration-line: none;
+}
 .navOptionLineOne {
   margin-top: 12px;
   font-size: 12px;
@@ -169,9 +178,11 @@
     display: flex;
     align-items: center;
     margin-top: -50px;
-    margin-left: 180px;
+    margin-left: 120px;
   }
-
+  .headerNavwishlist {
+    display: none;
+  }
   .navOption1 {
     display: none;
   }

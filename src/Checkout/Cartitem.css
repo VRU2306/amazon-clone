@@ -1,0 +1,205 @@
+.cartItem {
+  background-color: #ffffff;
+  margin: 5px;
+  padding: 15px;
+  height: 200px;
+  width: 100%;
+  display: flex;
+}
+
+.info {
+  margin-left: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+}
+
+.ImageDiv {
+  height: 100%;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.cartItemImage {
+  height: 100%;
+  max-width: 100%;
+}
+
+.cartItemTitle {
+  font-size: 20px;
+  color: #388a9c;
+}
+
+.faltuInfo * {
+  margin: 0;
+  font-size: 12px;
+}
+.faltuInfo {
+  margin-left: -700px;
+}
+.buttonInfo {
+  margin-left: -700px;
+}
+
+.namePriceInfo {
+  margin-bottom: 15px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.namePriceInfo * {
+  margin: 0;
+}
+
+.cartDeleteButton {
+  font-size: 12px;
+  padding: 2px 10px;
+  border: 0.1px solid black;
+  border-radius: 2px;
+  background-color: #f0c14b;
+}
+@media (max-width: 700px) {
+  .cartItem {
+    background-color: #ffffff;
+    margin: 5px;
+    padding: 15px;
+    height: 200px;
+    width: 100%;
+    display: flex;
+  }
+
+  .info {
+    margin-left: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .checkbox {
+    width: 16px;
+    height: 16px;
+  }
+
+  .ImageDiv {
+    height: 100%;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .cartItemImage {
+    height: 100%;
+    max-width: 100%;
+  }
+
+  .cartItemTitle {
+    font-size: 16px;
+    color: #388a9c;
+  }
+
+  .faltuInfo * {
+    margin: 0;
+    font-size: 12px;
+  }
+
+  .namePriceInfo {
+    margin-bottom: 15px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .namePriceInfo * {
+    margin: 0;
+  }
+
+  .cartDeleteButton {
+    font-size: 12px;
+    padding: 2px 10px;
+    border: 0.1px solid black;
+    border-radius: 2px;
+    background-color: #f0c14b;
+  }
+  .faltuInfo {
+    margin-left: 10px;
+  }
+  .buttonInfo {
+    margin-left: 10px;
+  }
+}
+.checkoutProduct {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid gainsboro;
+  padding-bottom: 20px;
+}
+
+.checkoutProduct:last-child {
+  border-bottom: none;
+}
+
+.checkoutProduct__info {
+  padding-left: 20px;
+}
+
+.checkoutProduct__info > button {
+  border: unset;
+  margin-top: 10px;
+  color: rgb(60, 112, 190);
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.checkoutProduct__image {
+  object-fit: contain;
+  width: 180px;
+  height: 180px;
+}
+
+.checkoutProduct__rating {
+  display: flex;
+}
+
+.checkoutProduct__title {
+  font-size: 20px;
+  font-weight: 450;
+}
+
+.checkoutProduct__price {
+  font-size: 20px;
+  line-height: 35px;
+}
+
+@media (max-width: 1000px) {
+  .checkoutProduct__title {
+    font-size: 18px;
+  }
+
+  .checkoutProduct__price {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 400px) {
+  .checkoutProduct {
+    flex-direction: column;
+  }
+
+  .checkoutProduct__title {
+    margin-top: 15px;
+  }
+}

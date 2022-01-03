@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./header.css";
 import "./sidenav.css";
 
 import amazon_logo from "../assets/amazon_logo.png";
-import { BrowserRouter , Routes, Route } from "react-router-dom";
+// import { BrowserRouter , Routes, Route } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MenuIcon from "@mui/icons-material/Menu";
 import SideNavigation from "./Sidenav";
 import TintBackground from "./Sidenav";
-
-import { Link } from "react-router-dom";
+import { getAuth, signOut } from "firebase/auth";
+import { Link,NavLink } from "react-router-dom";
 
 import { useStateValue } from "../StateProvider";
 
@@ -24,20 +24,36 @@ export default function Header() {
   const setBarState = () => {
     setSideBar(!sideBar);
   };
-
-  const handleAuth = () => {
-    if (user) {
-      auth.signOut();
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        dispatch({
+          type: "SET_BASKET",
+          user: authUser,
+          basket:basket?.length
+        })
+      } else{
+        dispatch({
+          type: "SET_USER",
+          user: null,
+          basket:[],
+        })
+      }
+    })
+  }, [])
+function logout () {
+    const auth = getAuth();
+    signOut(auth).then(() => {
       dispatch({
         type: "SET_USER",
         user: null,
       });
-      console.log("logged out");
-    }
-  };
-
+    }).catch((error) => {
+     alert(error.message)
+    });
+}
   return (
-    <BrowserRouter>
+    // <BrowserRouter>
     <div className="header">
       <div className="headerLogoDiv">
         <MenuIcon className="menuIcon" onClick={setBarState} />
@@ -45,9 +61,9 @@ export default function Header() {
         <SideNavigation act={sideBar} button={setBarState} />
         <TintBackground act={sideBar} button={setBarState} />
 
-        <Link to="/">
+        <NavLink to="/">
           <img className="headerLogo" src={amazon_logo} alt="amazon logo" />
-        </Link>
+        </NavLink>
       </div>
 
       <div className="headerSearch">
@@ -66,19 +82,30 @@ export default function Header() {
       </div>
 
       <div className="headerNav">
-        <Link to={!user && "/login"}>
-          <div onClick={handleAuth} className="navOption">
+        <NavLink to={!user && "/login"}>
+          <div onClick={logout} className="navOption">
             <span className="navOptionLineOne">
-              Hello, {user ? user.email : "Guest"}
+              Hello, {user ? user.email : "Member"}
             </span>
             <span className="navOptionLineTwo">
               {user ? "Sign Out" : "Sign In"}
               <ArrowDropDownIcon style={{ width: "20px" }} />
             </span>
           </div>
+        </NavLink>
+        <div className="headerNavwishlist">
+        <Link to={user? "/wishlist":'/login'}>
+            <span className="navOptionLineOne">
+              Your
+            </span>
+            <span className="navOptionLineTwo">
+             Wishlist
+              <ArrowDropDownIcon style={{ width: "20px" }} />
+            </span>
+  
         </Link>
-
-        <Link to="/orders">
+</div>
+        <NavLink to="/orders">
           <div className="navOption1">
             <span className="navOptionLineOne">Returns</span>
             <span className="navOptionLineTwo">
@@ -86,7 +113,7 @@ export default function Header() {
               <ArrowDropDownIcon style={{ width: "20px" }} />
             </span>
           </div>
-        </Link>
+        </NavLink>
 
         <div className="navOption2">
           <span className="navOptionLineOne">Try</span>
@@ -96,14 +123,14 @@ export default function Header() {
           </span>
         </div>
 
-        <Link to="/checkout">
+        <NavLink to="/checkout">
           <div className="optionBasket">
             <ShoppingCartIcon className="basketIcon" />
             <span className="navOptionLineTwo basketCount">
               {basket?.length}
             </span>
           </div>
-        </Link>
+        </NavLink>
    
       </div>
            <div className="header__Search">
@@ -121,6 +148,6 @@ export default function Header() {
         </button>
       </div>
     </div>
-    </BrowserRouter>
+    // </BrowserRouter>
   );
 }

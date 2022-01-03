@@ -1,0 +1,47 @@
+.subTotal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 350px;
+  padding: 10px;
+  margin: 15px;
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  border-radius: 10px;
+}
+
+.isAGift {
+  /* display: flex; */
+  align-items: center;
+}
+
+.checkOutButton {
+  background: #eba851;
+  margin-top: 10px;
+  color: rgb(0, 0, 0);
+  border-radius: 20px;
+  padding: 8px 30px;
+  border: none;
+  /* border-color: #a88734 #9c7e31 #846a29; */
+}
+
+.subTotalPrice * {
+  margin: 0;
+}
+
+.subTotalPrice {
+  margin: 20px 0;
+}
+@media (max-width: 700px) {
+  .subTotal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    padding: 10px;
+    margin: 15px;
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+  }
+}
