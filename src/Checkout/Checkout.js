@@ -39,19 +39,19 @@ function CheckOut() {
     );
   } else {
     return (
-       <div className="checkout">
+ <div className="checkout">
       <div className="checkout__left">
         <div>
-          <h3>Shopping Cart</h3>
-           
-          {items}
+          <h3> Your Shopping Cart</h3>
+       {items}
         </div>
       </div>
 
       <div className="checkout__right">
         <SubTotal/>
       </div>
-</div>
+
+    </div>
     );
   }
 }

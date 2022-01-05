@@ -34,7 +34,7 @@
 }
 
 .cartItemTitle {
-  font-size: 20px;
+  font-size: 18px;
   color: #388a9c;
 }
 
@@ -43,6 +43,7 @@
   font-size: 12px;
 }
 .faltuInfo {
+  margin-top: -20px;
   margin-left: -700px;
 }
 .buttonInfo {
@@ -73,7 +74,7 @@
     background-color: #ffffff;
     margin: 5px;
     padding: 15px;
-    height: 200px;
+    height: 255px;
     width: 100%;
     display: flex;
   }
@@ -105,7 +106,7 @@
   }
 
   .cartItemTitle {
-    font-size: 16px;
+    font-size: 12px;
     color: #388a9c;
   }
 
@@ -184,7 +185,7 @@
   line-height: 35px;
 }
 
-@media (max-width: 1000px) {
+/* @media (max-width: 1000px) {
   .checkoutProduct__title {
     font-size: 18px;
   }
@@ -192,7 +193,7 @@
   .checkoutProduct__price {
     font-size: 18px;
   }
-}
+} */
 
 @media (max-width: 400px) {
   .checkoutProduct {

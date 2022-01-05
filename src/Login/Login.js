@@ -144,10 +144,8 @@ function Register (e) {
       }}>Login</Button>
      </ValidatorForm>
 
-        <p>
-          By signing-in you agree to the AMAZONE FAKE CLONE .Please see our Privacy Notice, our Cookies and our Interest-Based Ads Notice.
+        
           <p style={{fontStyle:"italic"}}>If you are new here please press Create your Amaon Account.. </p>
-        </p>
         <button className="login__registerButton" onClick={Register}>Create your Amazon Account </button>
       </div>
     </div>

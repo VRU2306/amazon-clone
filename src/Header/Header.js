@@ -59,6 +59,7 @@ function logout () {
         <MenuIcon className="menuIcon" onClick={setBarState} />
 
         <SideNavigation act={sideBar} button={setBarState} />
+        {/* blurring the background */}
         <TintBackground act={sideBar} button={setBarState} />
 
         <NavLink to="/">

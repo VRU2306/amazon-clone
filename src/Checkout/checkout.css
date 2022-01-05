@@ -1,4 +1,4 @@
-.checkOut {
+.checkout {
   background-color: #f1f1f1;
   width: 100%;
   min-height: 70vh;
@@ -40,19 +40,6 @@
 
 .cartEmptyImage {
   width: 30%;
-}
-.checkout {
-  display: flex;
-  margin: 20px auto;
-  background-color: #f1f1f1;
-  height: max-content;
-  /* width: 100%; */
-  min-height: 70vh;
-  padding: 20px 20px 0 20px;
-  gap: 20px;
-  justify-content: space-evenly;
-
-  flex: 1;
 }
 
 .checkout__left {

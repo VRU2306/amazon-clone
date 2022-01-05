@@ -20,6 +20,13 @@ const reducer = (state, action) => {
         (basketItemsss) => basketItemsss.id === action.id
       ); 
       let newBasketsss = [...state.basket]
+      if (indexss >= 0) {
+        newBasketsss.splice(index, 1)
+      } else{
+        console.warn(
+          `Cant remove product {id: ${action.id}} as its not in basket!`
+        )
+      };
        return {
         ...state,
         basket: newBasketsss
@@ -68,18 +75,18 @@ const reducer = (state, action) => {
         user: action.user
       }
 
-    case "EMPTY_BASKET":
-      return{
-        ...state,
-        basket: []
+    // case "EMPTY_BASKET":
+    //   return{
+    //     ...state,
+    //     basket: []
         
-      }
-      case "EMPTY_WISHLIST":
-      return{
-        ...state,
-        wishlist: []
+    //   }
+      // case "EMPTY_WISHLIST":
+      // return{
+      //   ...state,
+      //   wishlist: []
         
-      }
+      // }
     default:
       return state;
   }

@@ -112,6 +112,11 @@
   text-decoration: none;
   text-decoration-line: none;
 }
+.headerNavwishlist :hover {
+  color: white;
+  text-decoration: none;
+  text-decoration-line: none;
+}
 .navOptionLineOne {
   margin-top: 12px;
   font-size: 12px;

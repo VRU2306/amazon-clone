@@ -35,9 +35,9 @@ function CartItem(props) {
   };
 
   return (
-    <div className="cartItem">
-      <div className="ImageDiv">
-        <img src={props.image} alt="image" className="cartItemImage" />
+    <div className="cartItems">
+      <div className="ImageDivs">
+        <img src={props.image} alt="image" className="cartItemImages" />
       </div>
 
       <div className="infos">
@@ -48,7 +48,7 @@ function CartItem(props) {
 
           <CurrencyFormat
             renderText={(value) => (
-              <p className="cartItemPrice">
+              <p className="cartItemPrices">
                 <strong>{value}</strong>
               </p>
             )}

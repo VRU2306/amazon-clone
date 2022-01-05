@@ -26,13 +26,13 @@ function CheckOut() {
       <div className="cartEmpty">
         <img src={cartEmptyImage} alt="cart empty" className="cartEmptyImage" />
         <div className="emptycartHeading">
-          <h2>Your Amazon Wishlist is empty.</h2>
+          <h2>Your  Wishlist is empty.</h2>
           <p>
-            Your shopping cart is waiting. Give it purpose - fill it with
+            Your wishing list  is waiting. Give it purpose - fill it with
             groceries, clothing, household supplies, electronics and more.
             <br></br>
             Continue shopping on the Amazon.in <Link to="/">home</Link>, learn
-            about today's deals, or visit your Wish List.
+            about today's deals, to fill your Wish List.
           </p>
         </div>
       </div>
@@ -40,7 +40,7 @@ function CheckOut() {
   } else {
     return (
       <div className="checkOut">
-        <div className="cartItems">
+        <div className="cartItemss">
           <h1>Your Wishlist</h1>
           {items}
         </div>
