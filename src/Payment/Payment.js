@@ -11,17 +11,28 @@ import CurrencyFormat from "react-currency-format";
 import { useNavigate,Link } from "react-router-dom";
 import { collection,onSnapshot,addDoc,setDoc } from "firebase/firestore";
 function Payment() {
-  const [{ basket, user }, dispatch] = useStateValue();
+  const [{ basket,payNow, user }, dispatch] = useStateValue();
   const history = useNavigate();
 
   var totalPrice = 0;
   basket.map((item) => {
     totalPrice += parseInt(item.price);
   });
+   var totalPriceS = 0;
+ payNow.map((item) => {
+    totalPrice += parseInt(item.price);
+  });
   const elements = useElements();
   // const stripe = useStripe();
-
-
+  var paynow=payNow.map((item,index) => (
+    <CartItem
+      id={item.id}
+      title={item.title}
+      price={item.price}
+      image={item.image}
+    />
+  ));
+console.log(payNow)
   var items = basket.map((item, index) => (
     <CartItem
       id={item.id}
@@ -48,6 +59,17 @@ function Payment() {
 
     getClientSecret();
   }, [basket]);
+  useEffect(() => {
+    const getClientSecret = async () => {
+      const response = await axios({
+        method: "post",
+        url: `/payments/create?total=${totalPriceS * 100}`,
+      });
+      setCLientSecret(response.data.clientSecret);
+    };
+
+    getClientSecret();
+  }, [payNow]);
   const stripe = useStripe()
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -72,6 +94,7 @@ function Payment() {
         amount: paymentIntent.amount,
         created: paymentIntent.created,
         basket: { basket } ,
+        payNow:{payNow}
 
         })
       
@@ -109,6 +132,7 @@ function Payment() {
           <h5>Review Cart:</h5>
           <div className="Paymentcard"> 
           <div className="cartItemsS">{items}</div>
+           <div className="cartItemsS">{paynow}</div>
         </div>
         </div>
         <div className="contentDiv">
@@ -128,7 +152,7 @@ function Payment() {
                     </p>
                   )}
                   decimalScale={2}
-                  value={totalPrice}
+                  value={totalPrice ||totalPriceS}
                   displayType={"text"}
                   prefix={"₹ "}
                 />

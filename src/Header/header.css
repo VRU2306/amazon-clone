@@ -133,6 +133,14 @@
   min-width: auto;
   white-space: nowrap;
 }
+.navOptionLineTwos {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  min-width: auto;
+  white-space: nowrap;
+}
 
 .optionBasket {
   cursor: pointer;
@@ -179,12 +187,9 @@
     background-color: #cd9042;
   }
 
-  .headerNav {
-    display: flex;
-    align-items: center;
-    margin-top: -50px;
-    margin-left: 120px;
-  }
+  /* .headerNav {
+    display: none;
+  } */
   .headerNavwishlist {
     display: none;
   }
@@ -195,11 +200,11 @@
     display: none;
   }
   .navOptionLineOne {
-    font-size: 10px;
+    display: none;
   }
 
   .navOptionLineTwo {
-    font-size: 16px;
+    display: none;
   }
   .header__Search {
     display: flex;
@@ -208,5 +213,20 @@
     border-radius: 24px;
     width: 95%;
     /* margin-top: 20px; */
+  }
+  .navOptionLineTwos {
+    display: flex;
+  }
+  .optionBasket {
+    margin-top: -50px;
+    margin-left: 250px;
+    cursor: pointer;
+    color: white;
+  }
+  .basketCount {
+    /* margin: 0 10px; */
+    font-size: 20px;
+    font-weight: 1000;
+    color: #e28f21;
   }
 }

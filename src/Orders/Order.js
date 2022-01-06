@@ -33,7 +33,7 @@ function Orders() {
       
         ,[]
     )
-
+ 
   const orderitems =
     orders?.length == 0 ? (
       <p className="noItems">
@@ -47,10 +47,7 @@ function Orders() {
     <div className="placedOrders">
       <div className="ordersHeader">
         <h3>Your Orders</h3>
-        <div>
-          <input type="text" placeholder="Search" className="orderSearch" />
-          <button className="orderSearchButton">search order</button>
-        </div>
+     
       </div>
       <p className="noOfOrders">{orders?.length} order placed</p>
       <div className="orderList">{orderitems}</div>

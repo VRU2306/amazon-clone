@@ -1,6 +1,7 @@
 export const initialState = {
   basket: [],
   wishlist:[],
+  payNow:[],
   user: null
 }
 
@@ -14,6 +15,11 @@ const reducer = (state, action) => {
     return {
       ...state,
       basket: [...state.basket, action.item],
+    };
+        case "PAYNOW":
+    return {
+      ...state,
+        payNow: [...state.payNow, action.item],
     };
   case "SET_BASKET":
       const indexss = state.basket.findIndex(
@@ -51,6 +57,22 @@ const reducer = (state, action) => {
       return {
         ...state,
         basket: newBasket
+      }
+          case "REMOVE_FROM_PAYNOW":
+      const indexssss = state.payNow.findIndex(
+        (basketItemsssss) => basketItemsssss.id === action.id
+      ); 
+      let newBasketssss = [...state.payNow]
+      if (indexssss >= 0) {
+        newBasketssss.splice(index, 1)
+      } else{
+        console.warn(
+          `Cant remove product {id: ${action.id}} as its not in delete!`
+        )
+      };
+      return {
+        ...state,
+         payNow: newBasketssss
       }
       
     case "REMOVE_FROM_WISHLIST":

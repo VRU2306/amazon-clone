@@ -24,6 +24,7 @@ export default function Header() {
   const setBarState = () => {
     setSideBar(!sideBar);
   };
+  
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
       if (authUser) {
@@ -127,7 +128,7 @@ function logout () {
         <NavLink to="/checkout">
           <div className="optionBasket">
             <ShoppingCartIcon className="basketIcon" />
-            <span className="navOptionLineTwo basketCount">
+            <span className="navOptionLineTwos basketCount">
               {basket?.length}
             </span>
           </div>

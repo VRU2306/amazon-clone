@@ -8,10 +8,23 @@ import { useStateValue } from "../StateProvider";
 import { BrowserRouter , Routes, Route,Link,NavLink } from "react-router-dom";
 import { Tooltip } from "@mui/material";
 function Product1(props) {
-  const [{ basket,user,wishlist }, dispatch] = useStateValue();
+  const [{ basket,user,wishlist,PayNow }, dispatch] = useStateValue();
 
 // console.log(user)
 // const [{basket[]?.id}] =useStateValue();
+  const Paynow = () => {
+    dispatch({
+      type: "PAYNOW",
+      item: {
+        id: props.id,
+        title: props.title,
+        image: props.image,
+        price: props.price,
+        rating: props.rating,
+      },
+    });
+  };
+
   const addToBasket = () => {
     dispatch({
       type: "ADD_TO_BASKET",
@@ -65,7 +78,7 @@ function Product1(props) {
         </div>
       </div>
       <Link to={user?`/payment`:`/login`}>
-        <button className="buynowbutton">
+        <button className="buynowbutton" onClick={Paynow}>
         Buy now
       </button>
       </Link>

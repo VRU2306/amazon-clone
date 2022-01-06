@@ -5,7 +5,7 @@ import moment from "moment";
 import oneplusImage from "../assets/OnePlus-7.jpg";
 import { collection,onSnapshot,addDoc,setDoc } from "firebase/firestore";
 function OrdersItem({ order }) {
-  console.log(order?.data.basket.basket)
+  console.log(order?.data.payNow.payNow)
   return (
     <div className="orderItem">
       <div className="orderHeader">
@@ -30,10 +30,11 @@ function OrdersItem({ order }) {
       <div className="orderContent">
         <div className="innerDiv">
           <div className="imageDiv">
-            <img src={order?.data.basket.basket[0]?.image} alt="item image" className="itemImage" />
+            <img src={order?.data.basket.basket[0]?.image||order?.data.payNow.payNow[0]?.image} alt="item image" className="itemImage" />
+           
           </div>
           <div className="orderDetails">
-            <p className="itemName">{order?.data.basket.basket[0]?.title}</p>
+            <p className="itemName">{order?.data.basket.basket[0]?.title||order?.data.payNow.payNow[0]?.title}</p>
             <p className="soldBy">Sold by Amazon.in</p>
             <p className="returnNA">Return not available</p>
           </div>

@@ -9,7 +9,7 @@ import amzFullfilled from "../assets/A_Fullfilled.png";
 import { useStateValue } from "../StateProvider";
 
 function CartItem(props) {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket,payNow }, dispatch] = useStateValue();
 
   const deleteItem = () => {
     // console.log("in Here");
@@ -18,7 +18,13 @@ function CartItem(props) {
       id: props.id,
     });
   };
-
+const deleteItema = () => {
+    // console.log("in Here");
+    dispatch({
+      type: "REMOVE_FROM_PAYNOW",
+      id: props.id,
+    });
+  };
   return (
     <div className="cartItem">
       <div className="ImageDiv">
@@ -51,7 +57,7 @@ function CartItem(props) {
         </div>
 
         <div className="buttonInfo">
-          <button className="cartDeleteButton" onClick={deleteItem}>
+       <button className="cartDeleteButton" onClick={deleteItem}>
            Remove from Cart
           </button>
         </div>

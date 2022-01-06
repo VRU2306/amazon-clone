@@ -25,15 +25,21 @@ function logout () {
      alert(error.message)
     });
 }
-
+  // const [{ basket, user }, dispatch] = useStateValue();
   return (
     <div className={props.act ? "sideNavigation active" : "sideNavigation"}>
       <div className="sideNavNameHead">
         <AccountCircleIcon style={{ color: "white" }} />
 
         <Link to={!user && "/login"}>
-          <h6 className="sideNavUser">
+          <h6 className="sideNavUser" style={{textDecoration:"none"}}>
             Hello, {user ? user?.email : "sign In"}
+            <div onClick={logout}> 
+            <span className="navOptionLineTwoss">
+              {user ? "Sign Out" : "Sign In"}
+            
+            </span></div>
+
           </h6>
         </Link>
 
@@ -46,10 +52,26 @@ function logout () {
           onClick={props.button}
         />
       </div>
-
-      <div className="catagory">
+  <Link to="/" style={{textDecoration:"none" ,color:"#000"}}>
+      <div className="fucn">
           Home
       </div>
+      </Link>
+      <Link to={user? "/wishlist":'/login'} style={{textDecoration:"none" ,color:"#000"}}>
+       <div className="fucn">
+          Your Wishlist
+      </div>
+      </Link>
+        <Link to="/orders" style={{textDecoration:"none" ,color:"#000"}}>
+       <div className="fucn">
+          Your Orders
+      </div>
+      </Link>
+         <Link to="/checkout" style={{textDecoration:"none" ,color:"#000"}}>
+       <div className="fucn">
+          Your Basket
+      </div>
+      </Link>
     </div>
   );
 }
