@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import db  from "../firebase";
 import "./order.css";
@@ -5,7 +6,8 @@ import { Link } from "react-router-dom";
 import { useStateValue } from "../StateProvider";
 
 import OrdersItem from "./Orders";
-import { collection,onSnapshot,addDoc,setDoc,getDoc } from "firebase/firestore";
+
+import { collection,onSnapshot,getDoc } from "firebase/firestore";
 function Orders() {
   const [{ user }] = useStateValue();
   const [orders, setOrders] = useState([]);
@@ -31,11 +33,11 @@ function Orders() {
            
             }))))
       
-        ,[]
+        ,
     )
  
   const orderitems =
-    orders?.length == 0 ? (
+    orders?.length === 0 ? (
       <p className="noItems">
         You haven't placed any orders yet. Visit <Link to="/">Amazon.in</Link>
       </p>

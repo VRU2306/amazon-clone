@@ -27,7 +27,7 @@ const reducer = (state, action) => {
       ); 
       let newBasketsss = [...state.basket]
       if (indexss >= 0) {
-        newBasketsss.splice(index, 1)
+        newBasketsss.splice(indexss, 1)
       } else{
         console.warn(
           `Cant remove product {id: ${action.id}} as its not in basket!`
@@ -64,7 +64,7 @@ const reducer = (state, action) => {
       ); 
       let newBasketssss = [...state.payNow]
       if (indexssss >= 0) {
-        newBasketssss.splice(index, 1)
+        newBasketssss.splice(indexssss, 1)
       } else{
         console.warn(
           `Cant remove product {id: ${action.id}} as its not in delete!`
