@@ -5,7 +5,7 @@ import moment from "moment";
 import oneplusImage from "../assets/OnePlus-7.jpg";
 import { collection,onSnapshot,addDoc,setDoc } from "firebase/firestore";
 function OrdersItem({ order }) {
-  console.log(order?.data.payNow.payNow)
+  // console.log(order?.data.payNow.payNow)
   return (
     <div className="orderItem">
       <div className="orderHeader">
