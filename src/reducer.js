@@ -75,18 +75,18 @@ const reducer = (state, action) => {
         user: action.user
       }
 
-    // case "EMPTY_BASKET":
-    //   return{
-    //     ...state,
-    //     basket: []
+    case "EMPTY_BASKET":
+      return{
+        ...state,
+        basket: []
         
-    //   }
-      // case "EMPTY_WISHLIST":
-      // return{
-      //   ...state,
-      //   wishlist: []
+      }
+      case "EMPTY_WISHLIST":
+      return{
+        ...state,
+        wishlist: []
         
-      // }
+      }
     default:
       return state;
   }

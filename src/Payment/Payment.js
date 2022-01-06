@@ -9,7 +9,7 @@ import { useStateValue } from "../StateProvider";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
 import { useNavigate,Link } from "react-router-dom";
-
+import { collection,onSnapshot,addDoc,setDoc } from "firebase/firestore";
 function Payment() {
   const [{ basket, user }, dispatch] = useStateValue();
   const history = useNavigate();
@@ -48,40 +48,44 @@ function Payment() {
 
     getClientSecret();
   }, [basket]);
-
+  const stripe = useStripe()
   const handleSubmit = async (e) => {
     e.preventDefault();
     setProcessing(true);
+    stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: elements.getElement(CardElement),
+        },
+      })
+   
+      .then(({paymentIntent} ) => {
+        console.log({paymentIntent})
+        const myDoc=collection(db,"users",)
+        addDoc(myDoc,{
+          user:user?.uid
+        })
+        console.log(basket);
+       const Asd=collection(db,"orders")
+      addDoc(Asd,{
+        // id:paymentIntent.id,
+        name: user.email,
+        amount: paymentIntent.amount,
+        created: paymentIntent.created,
+        basket: { basket } ,
 
-    // const payload = await stripe
-    //   .confirmCardPayment(clientSecret, {
-    //     payment_method: {
-    //       card: elements.getElement(CardElement),
-    //     },
-    //   })
-    //   .then(({ paymentIntent }) => {
-    //     console.log(basket);
-    //     db.collection("users")
-    //       .doc(user?.uid)
-    //       .collection("orders")
-    //       .doc(paymentIntent.id)
-    //       .set({
-    //         name: user.email,
-    //         basket: { basket },
-    //         amount: paymentIntent.amount,
-    //         created: paymentIntent.created,
-    //       });
+        })
+      
 
-    //     setsucceeded(true);
-    //     setError(null);
-    //     setProcessing(false);
+        setsucceeded(true);
+        setError(null);
+        setProcessing(false);
 
-    //     dispatch({
-    //       case: "EMPTY_BASKET",
-    //     });
+        dispatch({
+          case: "EMPTY_BASKET",
+        });
 
-    //     history.replace("/orders");
-    //   });
+        history("/orders");
+      });
   };
 
   const handleChange = (e) => {
@@ -109,7 +113,10 @@ function Payment() {
         </div>
         <div className="contentDiv">
           <h5>card details:</h5>
+          <h6 style={{marginLeft:"-150px",marginTop:"20px"}}>Use 424242... for test payment</h6>
           <div className="cardDetails">
+            <br></br>
+  
             <form className="cardForm" onSubmit={handleSubmit}>
               <CardElement onChange={handleChange} />
 

@@ -5,32 +5,34 @@ import { Link } from "react-router-dom";
 import { useStateValue } from "../StateProvider";
 
 import OrdersItem from "./Orders";
-
+import { collection,onSnapshot,addDoc,setDoc,getDoc } from "firebase/firestore";
 function Orders() {
   const [{ user }] = useStateValue();
   const [orders, setOrders] = useState([]);
 
-//   useEffect(() => {
-//     if (user) {
-//       console.log("user abb aa gaya >>", user.email);
+  useEffect(() => {
+    if (user) {
 
-//       db.collection("users")
-//         .doc(user?.uid)
-//         .collection("orders")
-//         .onSnapshot((snapshot) =>
-//           setOrders(
-//             snapshot.docs.map((doc) => ({
-//               id: doc.id,
-//               data: doc.data(),
-//             }))
-//           )
-//         );
-//       console.log("ORDERS >> ", orders);
-//     } else {
-//       setOrders([]);
-//       console.log("user ki maa chud gayi");
-//     }
-//   }, [user]);
+     onSnapshot(collection(db,"orders"),(snapshot) => 
+             setOrders(snapshot.docs.map((doc) => ({
+                data:doc.data(),
+                id: doc.id,
+           
+            }))))
+    } else {
+      setOrders([]);
+    }
+  }, [user]);
+
+     useEffect(() => 
+             onSnapshot(collection(db,"users"),(snapshot) => 
+             getDoc(snapshot.docs.map((doc) => ({
+                user:user?.uid
+           
+            }))))
+      
+        ,[]
+    )
 
   const orderitems =
     orders?.length == 0 ? (
