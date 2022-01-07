@@ -5,10 +5,10 @@ import Product from "../Product/Product";
 import HomeCarausel from "./Carsouel";
 
 import oneplusblueImage from "../assets/onePlus8t.jpg";
-
+import oneplusImage from "../assets/OnePlus-7.jpg";
 import oneplusredImage from "../assets/oneplus8tred.jpg";
 import samsungImage from "../assets/samsung10plus.jpg";
-
+import iphone12Image from "../assets/iphone12.jpg";
 
  function Home() {
   return (

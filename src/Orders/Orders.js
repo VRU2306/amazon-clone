@@ -2,6 +2,8 @@ import React from "react";
 import "./Orders.css";
 import moment from "moment";
 
+import oneplusImage from "../assets/OnePlus-7.jpg";
+import { collection,onSnapshot,addDoc,setDoc } from "firebase/firestore";
 function OrdersItem({ order }) {
   // console.log(order?.data.payNow.payNow)
   return (
@@ -28,7 +30,6 @@ function OrdersItem({ order }) {
       <div className="orderContent">
         <div className="innerDiv">
           <div className="imageDiv">
-            {/*  eslint-disable-next-line */}
             <img src={order?.data.basket.basket[0]?.image||order?.data.payNow.payNow[0]?.image} alt="item image" className="itemImage" />
            
           </div>

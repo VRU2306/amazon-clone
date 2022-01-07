@@ -8,20 +8,17 @@ import db  from "../firebase";
 import { useStateValue } from "../StateProvider";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
-import { useNavigate, } from "react-router-dom";
-import { collection,addDoc } from "firebase/firestore";
+import { useNavigate,Link } from "react-router-dom";
+import { collection,onSnapshot,addDoc,setDoc } from "firebase/firestore";
 function Payment() {
   const [{ basket,payNow, user }, dispatch] = useStateValue();
   const history = useNavigate();
 
   var totalPrice = 0;
-  // eslint-disable-next-line
   basket.map((item) => {
-  
     totalPrice += parseInt(item.price);
   });
    var totalPriceS = 0;
-   // eslint-disable-next-line
  payNow.map((item) => {
     totalPrice += parseInt(item.price);
   });
@@ -61,7 +58,6 @@ function Payment() {
     };
 
     getClientSecret();
-    // eslint-disable-next-line
   }, [basket]);
   useEffect(() => {
     const getClientSecret = async () => {
@@ -73,7 +69,6 @@ function Payment() {
     };
 
     getClientSecret();
-    // eslint-disable-next-line
   }, [payNow]);
   const stripe = useStripe()
   const handleSubmit = async (e) => {

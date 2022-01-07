@@ -41,7 +41,7 @@ export default function Header() {
         })
       }
     })
-  }, )
+  }, [])
 function logout () {
     const auth = getAuth();
     signOut(auth).then(() => {

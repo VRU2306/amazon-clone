@@ -1,6 +1,6 @@
-import { useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import {useState} from 'react'
-
+import {auth} from "../firebase"
 import './Login.css'
 import { ValidatorForm } from 'react-material-ui-form-validator'
 import TextValidator from 'react-material-ui-form-validator/lib/TextValidator'
