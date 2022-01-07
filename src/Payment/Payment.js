@@ -32,7 +32,7 @@ function Payment() {
       image={item.image}
     />
   ));
-////console.log(payNow)
+console.log(payNow)
   var items = basket.map((item, index) => (
     <CartItem
       id={item.id}
@@ -81,13 +81,13 @@ function Payment() {
       })
    
       .then(({paymentIntent} ) => {
-        //console.log({paymentIntent})
-        const myDoc=collection(db,"users",)
+        console.log({paymentIntent})
+        const myDoc=collection(db,"users")
         addDoc(myDoc,{
-          user:user?.uid
+         user:user?.uid,
         })
-        //console.log(basket);
-       const Asd=collection(db,"orders")
+        console.log(basket);
+       const Asd=collection(db,"users",user?.uid,"orders")
       addDoc(Asd,{
         // id:paymentIntent.id,
         name: user.email,
@@ -102,6 +102,7 @@ function Payment() {
         setsucceeded(true);
         setError(null);
         setProcessing(false);
+
         dispatch({
           case: "EMPTY_BASKET",
         });

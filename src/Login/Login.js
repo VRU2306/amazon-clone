@@ -27,7 +27,7 @@ function signIn (e) {
       signInWithEmailAndPassword(auth,email, values.password)
       .then( () => {
         history('/')
-        // console.log(auth,email, values.password)
+        console.log(auth,email, values.password)
       })
       .catch(error => alert(error.message))
   }
@@ -36,7 +36,7 @@ function Register (e) {
     createUserWithEmailAndPassword(auth,email, values.password)
       .then( () => {
         history('/')
-        // console.log(auth,email, values.password)
+        console.log(auth,email, values.password)
       })
       .catch(error => alert(error.message))
   }

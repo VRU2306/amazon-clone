@@ -13,10 +13,11 @@ function Orders() {
   useEffect(() => {
     if (user) {
 
-     onSnapshot(collection(db,"orders"),(snapshot) => 
+     onSnapshot(collection(db,"users",user?.uid,"orders"),(snapshot) => 
              setOrders(snapshot.docs.map((doc) => ({
                 data:doc.data(),
                 id: doc.id,
+              
            
             }))))
     } else {

@@ -38,7 +38,7 @@ import iphone12Image from "../assets/iphone12.jpg";
           <Product 
             id={3}
             title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual QHD 5120 x 1440"
-            price={10000}
+            price={100000}
             image="https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg"
             rating={4}
           />
@@ -47,21 +47,21 @@ import iphone12Image from "../assets/iphone12.jpg";
           <Product
             id={4}
             title="Samsung Galaxy S10 Plus (Prism Black, 8GB RAM, 128GB Storage)"
-            price={40000}
+            price="40000"
             image={samsungImage}
             rating={2}
           />
           <Product
             id={5}
             title="OnePlus 8T 5G (Aquamarine Green, 12GB RAM, 256GB Storage)"
-            price={46000}
+            price="46000"
             image={oneplusblueImage}
             rating={5}
           />
           <Product
             id={6}
             title="OnePlus 8T 5G (Lunar Silver 12GB RAM, 256GB Storage)"
-            price={45000}
+            price="45000"
             image={oneplusredImage}
             rating={4}
           />
@@ -77,21 +77,21 @@ import iphone12Image from "../assets/iphone12.jpg";
           <Product
             id={8}
             title="OnePlus 8T 5G (Aquamarine Green, 12GB RAM, 256GB Storage)"
-            price={50000}
+            price="46000"
             image={oneplusblueImage}
             rating={5}
           />
           <Product
             id={9}
             title="Samsung Galaxy S10 Plus (Prism Black, 8GB RAM, 128GB Storage)"
-            price={40000}
+            price="40000"
             image={samsungImage}
             rating={2}
           />
           <Product
             id={10}
             title="Samsung Galaxy S10 Plus (Prism Black, 8GB RAM, 128GB Storage)"
-            price={40000}
+            price="40000"
             image={samsungImage}
             rating={4.5}
           />

@@ -2,8 +2,8 @@ import React from "react";
 import "./Orders.css";
 import moment from "moment";
 
-import oneplusImage from "../assets/OnePlus-7.jpg";
-import { collection,onSnapshot,addDoc,setDoc } from "firebase/firestore";
+// import oneplusImage from "../assets/OnePlus-7.jpg";
+// import { collection,onSnapshot,addDoc,setDoc } from "firebase/firestore";
 function OrdersItem({ order }) {
   // console.log(order?.data.payNow.payNow)
   return (
