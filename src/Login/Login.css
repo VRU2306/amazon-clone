@@ -66,3 +66,11 @@
   border-color: darkgray;
   cursor: pointer;
 }
+.login__registerButton {
+  background: #eba851;
+  margin-top: 10px;
+  color: rgb(0, 0, 0);
+  border-radius: 20px;
+  /* padding: 8px 30px; */
+  border: none;
+}

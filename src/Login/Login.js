@@ -40,18 +40,6 @@ function Register (e) {
       })
       .catch(error => alert(error.message))
   }
-//   const regiter = e => {
-//     e.preventDefault()
-//     // Create a new user with email and password using firebase
-//     auth
-//       .createUserWithEmailAndPassword(email, password)
-//       .then((auth) => {
-//         if(auth){
-//           history.push('/')
-//         }
-//       })
-//       .catch((error => alert(error.message)))
-//   }  
  const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
@@ -73,7 +61,7 @@ function Register (e) {
           alt='amazon logo'
         />
       <div className="login__container"> 
-        <h1>Sign-in</h1>
+        <h1>Sign-in with Clone App</h1>
 
      <ValidatorForm 
        id="auth-register"
@@ -84,7 +72,7 @@ function Register (e) {
           signIn(email,values.password )}}
      >
          <TextValidator
-       label="Email"
+               label="Email"
                 type="email"
                 name="email"
                 display="filled"
@@ -104,11 +92,15 @@ function Register (e) {
          <br></br>
          
     <FormControl  >
-          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+          <InputLabel >Password</InputLabel>
           <OutlinedInput
           size='small'
-          fullWidth
-            id="outlined-adornment-password"
+             style={{width:"255px"}}
+                  label="Password"
+         validators={['required', 'isPassword']}
+                errorMessages={['This field is required', 'Enter a 6 characters password']}
+           id="email"
+             className="Passwordfield"
             type={values.showPassword ? 'text' : 'password'}
             value={values.password}
             onChange={handleChange('password')}
@@ -125,7 +117,6 @@ function Register (e) {
                 </IconButton>
               </InputAdornment>
             }
-            label="Password"
           />
         </FormControl>
         <br></br>
