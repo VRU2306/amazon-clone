@@ -61,7 +61,7 @@ function Register (e) {
           alt='amazon logo'
         />
       <div className="login__container"> 
-        <h1>Sign-in with Clone App</h1>
+        <h1>Sign-in with  App</h1>
 
      <ValidatorForm 
        id="auth-register"
