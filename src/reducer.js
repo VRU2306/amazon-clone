@@ -7,20 +7,24 @@ export const initialState = {
 
 // Selector
 export const getBasketTotal = (basket) => 
-  basket?.reduce((amount, item) => item.price + amount, 0)
+  basket?.reduce((amount, item,count) => item.price*count + amount, 0)
 
 const reducer = (state, action) => {
   switch(action.type){
     case "ADD_TO_BASKET":
-    return {
-      ...state,
-      basket: [...state.basket, action.item],
-    };
+    // the item must one time in basket
+    const item = action.payload;
+      if (state.basket.filter((item) => item.id === action.item.id).length > 0)
+        return state;
+
+      return { ...state, basket: [...state.basket, action.item] };
+
         case "PAYNOW":
     return {
       ...state,
         payNow: [...state.payNow, action.item],
     };
+   
   case "SET_BASKET":
       const indexss = state.basket.findIndex(
         (basketItemsss) => basketItemsss.id === action.id
