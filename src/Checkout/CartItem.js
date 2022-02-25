@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import CurrencyFormat from "react-currency-format";
 
 import "./Cartitem.css";
@@ -25,6 +25,15 @@ const deleteItema = () => {
       id: props.id,
     });
   };
+  const [count, setCount] = useState(1);
+
+  function increment() {
+    setCount((previousCount) => previousCount + 1);
+  }
+
+  function decrement() {
+    setCount((previousCount) => previousCount - 1);
+  }
   return (
     <div className="cartItem">
       <div className="ImageDiv">
@@ -57,9 +66,16 @@ const deleteItema = () => {
         </div>
 
         <div className="buttonInfo">
+          {count===0?(
        <button className="cartDeleteButton" onClick={deleteItem}>
            Remove from Cart
-          </button>
+          </button>):
+          <div>  
+            <button  className="cartDeleteButton" onClick={increment} name="+" >+</button>
+            {count}
+      <button  className="cartDeleteButton" onClick={decrement} name="-" >-</button></div>
+          }
+
         </div>
       </div>
     </div>

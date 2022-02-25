@@ -9,7 +9,7 @@ import SubTotal from "./Subtotal";
 
 import { useStateValue } from "../StateProvider";
 
-function CheckOut() {
+function CheckOut({value}) {
   const [{ basket }] = useStateValue();
 
   var items = basket.map((item, index) => (

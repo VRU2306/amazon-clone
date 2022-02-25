@@ -13,7 +13,7 @@ const reducer = (state, action) => {
   switch(action.type){
     case "ADD_TO_BASKET":
     // the item must one time in basket
-    const item = action.payload;
+
       if (state.basket.filter((item) => item.id === action.item.id).length > 0)
         return state;
 

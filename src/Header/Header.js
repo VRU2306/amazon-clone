@@ -20,6 +20,7 @@ import { auth } from "../firebase";
 export default function Header() {
   const [sideBar, setSideBar] = useState(false);
   const [{ basket, user }, dispatch] = useStateValue();
+  console.log(basket)
 
   const setBarState = () => {
     setSideBar(!sideBar);
